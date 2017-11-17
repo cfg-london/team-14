@@ -2,7 +2,7 @@
 
 width: 70%;
     height: 100px;
-    
+
     position: absolute;
     top:0;
     bottom: 0;
@@ -10,4 +10,27 @@ width: 70%;
     right: 0;
 
     margin: auto;
+}
+
+#queryStr{
+	border-radius:0px ;
+	padding: 25px;
+	border : none !important;
+	-moz-box-shadow: 0 0 17px rgba(0, 0, 0, 0.6);;
+	-webkit-box-shadow: 0 0 17px rgba(0, 0, 0, 0.6);;
+	box-shadow: 0 0 17px rgba(0, 0, 0, 0.6);;
+}
+#Query{
+	border-radius:0px; 
+	padding: 25px
+	border : none !important;
+	border-style : none !important;
+	background-color:#ff5151;
+	-moz-box-shadow: 0 0 17px rgba(0, 0, 0, 0.6);;
+	-webkit-box-shadow: 0 0 17px rgba(0, 0, 0, 0.6);;
+	box-shadow: 0 0 17px rgba(0, 0, 0, 0.6);
+}
+#Query:hover{
+	background-color:#d64242;
+	cursor:pointer;
 }
