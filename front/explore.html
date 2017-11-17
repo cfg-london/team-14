@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<!-- Load the Paper.js library -->
+<script type="text/javascript" src="js/paper.js"></script>
+<!-- Define inlined PaperScript associate it with myCanvas -->
+<script type="text/paperscript" canvas="myCanvas">
+
+var rad = 50;
+var initRad = rad/(1.05^20);
+var x = 20; //constant for separating hexagons
+
+var hexPhysics = new Path.RegularPolygon(new Point(2*rad+2*x, rad), 6, initRad);
+hexPhysics.fillColor = 'red';
+hexPhysics.strokeColor = 'black';
+
+var hexChem = new Path.RegularPolygon(new Point(4*rad+2*x, rad), 6, initRad);
+hexChem.fillColor = 'blue';
+hexChem.strokeColor = 'black';
+
+var hexMed = new Path.RegularPolygon(new Point(rad, 2*rad+2*x), 6, initRad);
+hexMed.fillColor = 'green';
+hexMed.strokeColor = 'black';
+
+var hexLit = new Path.RegularPolygon(new Point(5*rad+4*x, 2*rad+2*x), 6, initRad);
+hexLit.fillColor = 'purple';
+hexLit.strokeColor = 'black';
+
+var hexPeace = new Path.RegularPolygon(new Point(2*rad+2*x, 3*rad+4*x), 6, initRad);
+hexPeace.fillColor = 'white';
+hexPeace.strokeColor = 'black';
+
+var hexEcon = new Path.RegularPolygon(new Point(4*rad+2*x, 3*rad+4*x), 6, initRad);
+hexEcon.fillColor = 'yellow';
+hexEcon.strokeColor = 'black';
+
+var hexagons = [hexPhysics, hexChem, hexMed, hexLit, hexPeace, hexEcon];
+
+index = 0;
+
+function onFrame(event){
+  
+  if(index < 60){
+    for(i = 0; i < hexagons.length; i++){
+        hexagons[i].rotate(0.5);
+        hexagons[i].scale(1.05);
+    }   
+    
+    index += 1;
+  }
+}
+
+
+</script>
+</head>
+<body>
+
+<h1>
+    Explore the Nobel Prize Laureates
+</h1>
+<center>
+<canvas id="myCanvas" height="500" width="700"></canvas>
+</center>
+</body>
+</html>
