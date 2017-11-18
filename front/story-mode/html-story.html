@@ -1,26 +1,6 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <?php
-        // /story.php?laureate=id
-            if (isset($_GET['laureate'])) {
-                echo $_GET['laureate'];
-            }else{
-                // Fallback behaviour
-            }
-
-        	$url = "http://api.nobelprize.org/v1/laureate.json?id=" . $id;
-
-            $contents = file_get_contents($url);
-
-            $data = json_decode($contents, true);
-            //If $contents is not a boolean FALSE value.
-            if($contents !== false){
-                //Print out the contents.
-                $fullName = $data['laureates'][0]['firstname'] . " " . $data['laureates'][0]['surname'];
-                $surname = $data['laureates'][0]['surname'];
-            }
-        ?>
         <title>Nobel Laureate Story</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" type="text/css" href="story.css">
@@ -33,10 +13,8 @@
             <div class="section" id="intro-section">
                 <div class="slide">
                         <div class="laureate-info">
-                            <?php
-                            echo '<img class="rounded-circle" src="https://www.nobelprize.org/nobel_prizes/peace/laureates/1964/'. $surname .'_postcard.jpg" width="140" height="140">'; 
-                            echo '<h3>'.$fullName.'</h3>';
-                            ?>
+                            <img class="rounded-circle" src="https://www.nobelprize.org/nobel_prizes/peace/laureates/1964/king_postcard.jpg" width="140" height="140">
+                            <h3>Laureate Name</h3>
                         </div>
 
                         <div class="motivation">
@@ -55,7 +33,7 @@
                             </div>
 
                             <div class="col-md-5 order-md-1">
-                                <?php echo '<img class="rounded-circle" src="https://www.nobelprize.org/nobel_prizes/peace/laureates/1964/'. $surname .'_postcard.jpg" width="500" height="500">'; ?>
+                                <img class="featurette-image img-fluid mx-auto" src="https://www.nobelprize.org/nobel_prizes/peace/laureates/1964/king_postcard.jpg" width="500" height="500">
                             </div>
                         </div>
                     </div>
@@ -96,7 +74,6 @@
                     autoScrolling: true,
                     scrollOverflow: true,
                     sectionsColor: ['#d5ff80', '#80dfff', '#ffff66', '#ffb3b3', '#ff99ff'],
-
                 });
             });
         </script>
