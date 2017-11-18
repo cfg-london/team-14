@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import JsonResponse
 
-from nlp.processQuery import processText
+from processQuery import processText
 
 # Create your views here.
 def processQuery(request):
