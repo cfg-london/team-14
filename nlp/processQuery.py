@@ -20,7 +20,7 @@ def processText(query):
     # print(newSentence)
     return {sentence:newSentence}
 
-processText("Where is einstein from 1997 to 2005")
+# processText("Where is einstein from 1997 to 2005")
 
 # def getQuery(data):
 #     obj = Laureate.objects
