@@ -1,5 +1,4 @@
 #!/usr/bin/env python
-
 import nltk
 import sys
 #nltk.download('punkt')
