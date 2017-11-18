@@ -14,6 +14,9 @@ width: 100%;
 #title{
 	font-size:30px;
 }
+#icons{
+	width:100%;
+}
 #exploreButton{
 	margin-top:10px;
 	border-radius:0px; 
