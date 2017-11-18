@@ -10,5 +10,6 @@ beginPattern = r"<p>\s*<strong>\s*Prize share:\s*</strong>\s*.*\s*</p>\s*</div>\
 content1 = re.split(beginPattern, content)[1]
 endPattern = r"<div class=\"copy\">Copyright &copy;"
 content2 = re.split(endPattern, content1)[0]
+content3 = re.sub(r"\t+", "", content2)
 
-print(content2)
+print(content3)
