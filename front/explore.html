@@ -3,6 +3,7 @@
 <head>
 
 <link rel="stylesheet" type="text/css" href="css/landing-page.css" />
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <!-- Load the Paper.js library -->
 <script type="text/javascript" src="js/paper.js"></script>
 <!-- Define inlined PaperScript associate it with myCanvas -->
@@ -29,8 +30,6 @@ var initRad = rad/(1.05^20);
 
 var actW = 2.2*rad + 2*dist;
 var actH = 2.2*rad + dist*Math.sqrt(3);
-
-alert("Width: " + actW + ", Height: " + actH);
 
 document.getElementById("myCanvas").height = actH;
 document.getElementById("myCanvas").width = actW;
@@ -138,20 +137,18 @@ function onFrame(event){
 </script>
 </head>
 <body>
-<div>
-
+<div class="centerDiv">
 <center>
-<h1>
-    Explore the Nobel Prize Laureates
-</h1>
-<canvas id="myCanvas" width=1200 height=800>
 
-</canvas>
+<canvas id="myCanvas" width=1200 height=800></canvas>
+
 </center>
-
-<button type="button" class="btn btn-block btn-lg btn-primary" id="exploreButton" onclick="location.href='index.html';">Back to homepage</button>
-   
+ 
 </div>
+
+
+<a style="color:#ffffff;text-decoration:none;" href="index.html"><i class="material-icons" style="font-size:64px">&#xe408;</i></a>
+
 <img id="phys" class="visuallyhidden" src="img/phys.png" >
 <img id="chem" class="visuallyhidden" src="img/chem.png">
 <img id="med" class="visuallyhidden" src="img/med.png">
