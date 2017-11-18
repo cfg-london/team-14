@@ -37,7 +37,6 @@ var curX = rad*1.1 + dist*0.5;
 var curY = rad;
 
 var hexPhysics = new Path.RegularPolygon(new Point(curX, curY), 6, initRad);
-hexPhysics.fillColor = '#ff5151';
 
 var imgPhysics = new Raster('phys');
 imgPhysics.position = new Point(curX, curY);
@@ -47,7 +46,6 @@ imgPhysics.rotate(-30);
 curX += dist;
 
 var hexChem = new Path.RegularPolygon(new Point(curX, curY), 6, initRad);
-hexChem.fillColor = '#ff5151';
 
 var imgChem = new Raster('chem');
 imgChem.position = new Point(curX, curY);
@@ -58,7 +56,6 @@ curX += dist*0.5;
 curY += dist*Math.sqrt(3)/2;
 
 var hexMed = new Path.RegularPolygon(new Point(curX, curY), 6, initRad);
-hexMed.fillColor = '#ff5151';
 
 var imgMed = new Raster('med');
 imgMed.position = new Point(curX, curY);
@@ -69,8 +66,6 @@ curX -= dist*0.5;
 curY += dist*Math.sqrt(3)/2;
 
 var hexLit = new Path.RegularPolygon(new Point(curX, curY), 6, initRad);
-hexLit.fillColor = '#ff5151';
-
 var imgLit = new Raster('lit');
 imgLit.position = new Point(curX, curY);
 imgLit.scale(0.02);
@@ -79,7 +74,6 @@ imgLit.rotate(-30);
 curX -= dist;
 
 var hexPeace = new Path.RegularPolygon(new Point(curX, curY), 6, initRad);
-hexPeace.fillColor = '#ff5151';
 
 var imgPeace = new Raster('peace');
 imgPeace.position = new Point(curX, curY);
@@ -90,7 +84,6 @@ curX -= dist*0.5;
 curY -= dist*Math.sqrt(3)/2;
 
 var hexEcon = new Path.RegularPolygon(new Point(curX, curY), 6, initRad);
-hexEcon.fillColor = '#ff5151';
 
 var imgEcon = new Raster('econ');
 imgEcon.position = new Point(curX, curY);
@@ -104,9 +97,14 @@ var groupLit = new Group([hexLit, imgLit]);
 var groupPeace = new Group([hexPeace, imgPeace]);
 var groupEcon = new Group([hexEcon, imgEcon]);
 
+var outlines = [hexPhysics, hexChem, hexMed, hexLit, hexPeace, hexEcon];
+
 var hexagons = [groupPhys, groupChem, groupMed, groupLit, groupPeace, groupEcon];
 
 for(i = 0; i < hexagons.length; i++){
+
+    outlines[i].strokeColor = '#ff5151';
+    outlines[i].strokeWidth = 3;
     
     hexagons[i].onMouseEnter = function(event){
        this.scale(1.1);
@@ -138,10 +136,15 @@ function onFrame(event){
 </head>
 <body>
 <div>
-<center><h1>
+
+<center>
+<h1>
     Explore the Nobel Prize Laureates
-</h1></center>
-<center><canvas id="myCanvas" width=1200 height=800></canvas></center>
+</h1>
+<canvas id="myCanvas" width=1200 height=800>
+
+</canvas>
+</center>
 
 <button type="button" class="btn btn-block btn-lg btn-primary" id="exploreButton" onclick="location.href='index.html';">Back to homepage</button>
    
