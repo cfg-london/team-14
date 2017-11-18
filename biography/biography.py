@@ -2,6 +2,7 @@ import urllib.request
 import ssl
 import re
 
+# Not checking server - must change this for production!
 response = urllib.request.urlopen('https://www.nobelprize.org/nobel_prizes/peace/laureates/1964/king-facts.html', context=ssl.SSLContext())
 
 content = response.read().decode('utf-8')
