@@ -58,6 +58,8 @@ In fact: I was very bad in school, Dubochet told RTS. The scientist adds that a 
         <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
         <link rel="stylesheet" type="text/css" href="fullPage.js-master/jquery.fullPage.css" />
+        <link href="../css/landing-page.css" rel="stylesheet">
+        <link href="../style.css" rel="stylesheet">
     </head>
     <body>
         <div id="fullpage">
