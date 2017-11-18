@@ -68,7 +68,7 @@ In fact: I was very bad in school, Dubochet told RTS. The scientist adds that a 
                             if ($id == 6){
                                 echo '<img class="rounded-circle" src="https://www.nobelprize.org/nobel_prizes/chemistry/laureates/'.$year.'/marie-curie_postcard.jpg" width="140" height="140">';
                             }else {
-                                  echo '<img class="rounded-circle" src="https://www.nobelprize.org/nobel_prizes/chemistry/laureates/'.$year.'/'. $surname .'_postcard.jpg" width="140" height="140">';
+                                  echo '<img class="rounded-circle" src="https://www.nobelprize.org/nobel_prizes/chemistry/laureates/'.$year.'/'. strtolowe($surname) .'_postcard.jpg" width="140" height="140">';
                               }
                             echo '<h3>'.$fullName.'</h3>';
                             ?>
@@ -95,7 +95,7 @@ In fact: I was very bad in school, Dubochet told RTS. The scientist adds that a 
                             </div>
 
                             <div class="col-md-5 order-md-1">
-                                <?php echo '<img class="rounded-circle" src="https://www.nobelprize.org/nobel_prizes/chemistry/laureates/'.$year.'/'. $surname .'_postcard.jpg" width="500" height="500">'; ?>
+                                <?php echo '<img class="rounded-circle" src="https://www.nobelprize.org/nobel_prizes/chemistry/laureates/'.$year.'/'. strtolower($surname) .'_postcard.jpg" width="500" height="500">'; ?>
                             </div>
                         </div>
                     </div>
