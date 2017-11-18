@@ -8,8 +8,9 @@ content = response.read().decode('utf-8')
 
 beginPattern = r"<p>\s*<strong>\s*Prize share:\s*</strong>\s*.*\s*</p>\s*</div>\s*</div>\s*</div>\s*<div style=\"clear:both;\"></div>\s*"
 content1 = re.split(beginPattern, content)[1]
-endPattern = r"<div class=\"copy\">Copyright &copy;"
+endPattern = r"\s*<div class=\"copy\">Copyright &copy;"
 content2 = re.split(endPattern, content1)[0]
 content3 = re.sub(r"\t+", "", content2)
+# content4 = re.sub(r"\s+$", "", content3)
 
 print(content3)
