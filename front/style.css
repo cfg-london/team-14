@@ -60,7 +60,7 @@ background-color:white;
 }
 #exploreButton{
 	margin-top:10px;
-	border-radius:0px; 
+	border-radius:0px;
 	padding: 25px;
 	border : none !important;
 	border-style : none !important;
@@ -93,7 +93,7 @@ background-color:white;
 	box-shadow: 0 0 17px rgba(0, 0, 0, 0.6);
 }
 #Query{
-	border-radius:0px; 
+	border-radius:0px;
 	padding: 25px;
 	border : none !important;
 	border-style : none !important;
@@ -109,7 +109,7 @@ background-color:white;
 
 #home{
 	margin-left:1%;
-	border-radius:0px; 
+	border-radius:0px;
 	padding: 25px;
 	border : none !important;
 	border-style : none !important;
@@ -129,7 +129,7 @@ background-color:white;
 
 #exploreButton2{
 	margin-left:1%;
-	border-radius:0px; 
+	border-radius:0px;
 	padding: 25px;
 	border : none !important;
 	border-style : none !important;
