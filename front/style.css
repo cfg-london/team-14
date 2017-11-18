@@ -11,6 +11,11 @@ width: 100%;
 
     margin: auto;
 }
+.boxText {
+	padding-top:150px;
+	margin-left:auto;
+	margin-right:auto;
+}
 #title{
 	font-size:30px;
 
