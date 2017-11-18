@@ -1,7 +1,19 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Andrei Nicolae's Portfolio</title>
+        <?php
+        // /story.php?laureate=surname
+            if (isset($_GET['laureate'])) {
+                echo $_GET['laureate'];
+            }else{
+                // Fallback behaviour
+            }
+
+            // get full name
+            // get surname
+            // related laureates surnames
+        ?>
+        <title>Nobel Laureate Story</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" type="text/css" href="story.css">
         <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">

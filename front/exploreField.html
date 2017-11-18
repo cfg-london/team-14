@@ -8,11 +8,67 @@
 <!-- Define inlined PaperScript associate it with myCanvas -->
 <script type="text/paperscript" canvas="myCanvas">
 
+var width = window.innerWidth
+|| document.documentElement.clientWidth
+|| document.body.clientWidth;
+
 //receive/parse json
 var fields = ["Physical chemistry", "Organic Chemistry", "Inorganic Chemistry"];
-fields[0][0] = "Einstein";
-alert(fields[0][0]);
 
+//search input for laureates
+//["Einstein", "Curie"],["A", "B", "C"],["foo", "bar"]
+var laureates = [["Einstein", "Curie"],["A", "B", "C"],["foo", "bar"]];
+
+var rad = 100;
+
+var prevBottom = 0;
+
+for(i = 0; i < laureates.length; i++){
+    //create hexagon for each field
+    var point = new Point(width/2, (i+1)*500);
+    
+    if(prevBottom != 0){
+        var line = Path.Line(prevBottom, point);
+        line.strokeColor = '#ff5151';
+    }
+    
+    var fieldHex = new Path.RegularPolygon(point, 6, rad);
+    fieldHex.rotate(30);
+    fieldHex.strokeColor = '#ff5151';
+    fieldHex.fillColor = '#333333';
+    fieldHex.strokeWidth = 3;
+    var leftPoint = new Point(point.x - rad, point.y);
+    var rightPoint =  new Point(point.x + rad, point.y);
+    var prevBottom = new Point(point.x, point.y + rad*0.89);
+    //create circle for each laureate
+    var left = true;
+    for(x = 0; x < laureates[i].length; x++){
+        //calc centre + radius
+        var circPoint = 0;
+        if(Boolean(left)){
+            circPoint = new Point(point.x - width/4, point.y - 100 + 120*(Math.floor(x/2)));
+            var line = new Path.Line(leftPoint, new Point(circPoint.x + 50, circPoint.y));
+            line.strokeColor = 'white';
+            left = false;
+        }else{
+            circPoint = new Point(point.x + width/4, point.y - 100 + 120*(Math.floor(x/2)));
+            var line = new Path.Line(rightPoint, new Point(circPoint.x - 50, circPoint.y));
+            line.strokeColor = 'white';
+            left = true;
+        }
+        var laureateCircle = new Shape.Circle(circPoint, 50);
+        laureateCircle.fillColor = 'white';
+        laureateCircle.onMouseEnter = function(event ){
+            //create tab thing
+            this.scale(1.1);
+        }
+        laureateCircle.onMouseLeave = function(event) {
+            this.scale(1/1.1);
+        }
+        //add image to circle
+        //add listener to circle
+    }
+}
 
 function onFrame(event){
   
@@ -22,6 +78,6 @@ function onFrame(event){
 </script>
 </head>
 <body>
-
+<canvas id="myCanvas" width=1600 height=1800></canvas>
 </body>
 </html>
