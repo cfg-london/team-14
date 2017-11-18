@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import JsonResponse
 
-from models import Prize, PrizeAward
+from prizes.models import Prize, PrizeAward
 
 # Create your views here.
 def getPrizes(request):
