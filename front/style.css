@@ -17,6 +17,12 @@ width: 100%;
 	padding-bottom:20px;
 
 }
+.navBar{
+	width:100%;
+	position:fixed;
+	height:120px;
+	background-color:rgba(0,0,0,0)
+}
 #icons{
 	padding-bottom:120px;
 	padding-top:120px;
@@ -71,5 +77,41 @@ width: 100%;
 }
 #Query:hover{
 	background-color:#d64242;
+	cursor:pointer;
+}
+
+#home{
+	margin-left:1%;
+	border-radius:0px; 
+	padding: 25px;
+	border : none !important;
+	border-style : none !important;
+	background-color:#79d865;
+	-moz-box-shadow: 0 0 17px rgba(0, 0, 0, 0.6);
+	-webkit-box-shadow: 0 0 17px rgba(0, 0, 0, 0.6);
+	box-shadow: 0 0 17px rgba(0, 0, 0, 0.6);
+}
+#home:hover{
+	background-color:#4daf3a;
+	cursor:pointer;
+}
+
+
+
+
+
+#exploreButton2{
+	margin-left:1%;
+	border-radius:0px; 
+	padding: 25px;
+	border : none !important;
+	border-style : none !important;
+	background-color:#4dbef2;
+	-moz-box-shadow: 0 0 17px rgba(0, 0, 0, 0.6);
+	-webkit-box-shadow: 0 0 17px rgba(0, 0, 0, 0.6);
+	box-shadow: 0 0 17px rgba(0, 0, 0, 0.6);
+}
+#exploreButton2:hover{
+	background-color:#3294c1;
 	cursor:pointer;
 }
