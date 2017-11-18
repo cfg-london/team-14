@@ -8,13 +8,9 @@
 <!-- Define inlined PaperScript associate it with myCanvas -->
 <script type="text/paperscript" canvas="myCanvas">
 
-var width = window.innerWidth
-|| document.documentElement.clientWidth
-|| document.body.clientWidth;
-
 var subject = "chem";
 
-var initPoint = new Point(width/2, 150);
+var initPoint = new Point(1000, 1000);
 
 var initHex = new Path.RegularPolygon(initPoint, 6, 100);
 initHex.rotate(30);
@@ -28,11 +24,11 @@ imgSub.scale(0.5);
 imgSub.position = initPoint;
 
 //receive/parse json
-var fields = ["Physical chemistry", "Organic Chemistry", "Inorganic Chemistry"];
+var fields = ["Nuclear Chemistry", "Biochemistry", "Theoretical Chemistry", "Genetics", "Physical Chemistry"];
 
 //search input for laureates
 //["Einstein", "Curie"],["A", "B", "C"],["foo", "bar"]
-var laureates = [["Einstein", "Curie"],["A", "B", "C"],["foo", "bar"]];
+var laureates = [["Ernest Rutherford", "Marie Curie", "Irene Joliot-Curie"],["Jacques Dubochet", "Joachim Frank", "Richard Henderson", "Venkatraman Ramakrishnan"], ["Linus Pauling"], ["Aziz Sancar"], ["Ahmed Zewail"]];
 
 var rad = 100;
 var dist = 500;
@@ -77,13 +73,38 @@ for(i = 0; i < laureates.length; i++){
         
         var laureateCircle = new Shape.Circle(circPoint, 50);
         laureateCircle.fillColor = 'white';
-        laureateCircle.onMouseEnter = function(event ){
-            //create tab thing
-            this.scale(1.1);
-        }
-        laureateCircle.onMouseLeave = function(event) {
-            this.scale(1/1.1);
-        }
+        /*
+        if(i == 0 && x == 0){
+            var rast = new Raster('rutherford');
+            laureateCircle.onMouseEnter = function(event ){
+                //create tab thing
+                rast.position = new Point(circPoint.x - 50 - rast.size.width, circPoint.y - 50 - rast.size.height);
+                alert(rast.posi);
+                this.scale(1.1);
+            }
+            
+            laureateCircle.onMouseLeave = function(event) {
+                rast.remove();
+                this.scale(1/1.1);
+            }
+        }else{*/
+            laureateCircle.onMouseEnter = function(event ){
+                //create tab thing
+                document.getElementById('rutherford').classList.remove('visuallyhidden');
+                this.scale(1.1);
+            }
+            
+            laureateCircle.onMouseLeave = function(event) {
+                document.getElementById('rutherford').classList.add("visuallyhidden");
+                this.scale(1/1.1);
+            }        
+            laureateCircle.onClick = function(event){
+                window.location.replace("story-mode/story.php?id=167");
+            }
+        //}
+        
+       
+        
         //add image to circle
         //add listener to circle
         tempAngle += Math.PI / (laureates[i].length-1);
@@ -92,6 +113,7 @@ for(i = 0; i < laureates.length; i++){
     angle += 2*Math.PI / laureates.length;
 }
 
+
 function onFrame(event){
   
   
@@ -99,14 +121,16 @@ function onFrame(event){
 
 </script>
 </head>
-<body>
-<canvas id="myCanvas" width=3200 height=3200></canvas>
+<body onLoad="window.scroll(160, 520)">
+<canvas id="myCanvas" width=2000 height=2000></canvas>
 
-<img id="phys" class="visuallyhidden" src="img/phys.png" >
-<img id="chem" class="visuallyhidden" src="img/chem.png">
-<img id="med" class="visuallyhidden" src="img/med.png">
-<img id="lit" class="visuallyhidden" src="img/lit.png" >
-<img id="peace" class="visuallyhidden" src="img/peace.png">
-<img id="econ" class="visuallyhidden" src="img/econ.png" >
+<img id="phys" class="visuallyhidden" src="img/phys.png" \>
+<img id="chem" class="visuallyhidden" src="img/chem.png" \>
+<img id="med" class="visuallyhidden" src="img/med.png" \>
+<img id="lit" class="visuallyhidden" src="img/lit.png" \>
+<img id="peace" class="visuallyhidden" src="img/peace.png" \>
+<img id="econ" class="visuallyhidden" src="img/econ.png" \>
+<img id="rutherford" class="visuallyhidden" src="img/rutherford.png" style="position:absolute;left:200px;top:200px;"\>
+
 </body>
 </html>
