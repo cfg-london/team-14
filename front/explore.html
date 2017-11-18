@@ -1,40 +1,110 @@
 <!DOCTYPE html>
 <html>
 <head>
+
+<link rel="stylesheet" type="text/css" href="css/landing-page.css" />
 <!-- Load the Paper.js library -->
 <script type="text/javascript" src="js/paper.js"></script>
 <!-- Define inlined PaperScript associate it with myCanvas -->
 <script type="text/paperscript" canvas="myCanvas">
 
-var rad = 50;
-var initRad = rad/(1.05^20);
-var x = 20; //constant for separating hexagons
+var width = window.innerWidth
+|| document.documentElement.clientWidth
+|| document.body.clientWidth;
 
-var hexPhysics = new Path.RegularPolygon(new Point(2*rad+2*x, rad), 6, initRad);
-hexPhysics.fillColor = 'red';
-hexPhysics.strokeColor = 'black';
+var maxW = width * 0.6;
 
-var hexChem = new Path.RegularPolygon(new Point(4*rad+2*x, rad), 6, initRad);
-hexChem.fillColor = 'blue';
-hexChem.strokeColor = 'black';
+var dist = maxW/2;
+console.log(dist);
 
-var hexMed = new Path.RegularPolygon(new Point(rad, 2*rad+2*x), 6, initRad);
-hexMed.fillColor = 'green';
-hexMed.strokeColor = 'black';
+var rad = (dist/2) - 10;
+var initRad = rad/(1.1^60);
 
-var hexLit = new Path.RegularPolygon(new Point(5*rad+4*x, 2*rad+2*x), 6, initRad);
-hexLit.fillColor = 'purple';
-hexLit.strokeColor = 'black';
+var curX = rad + dist*0.5;
+var curY = rad;
 
-var hexPeace = new Path.RegularPolygon(new Point(2*rad+2*x, 3*rad+4*x), 6, initRad);
-hexPeace.fillColor = 'white';
-hexPeace.strokeColor = 'black';
+var hexPhysics = new Path.RegularPolygon(new Point(curX, curY), 6, initRad);
+hexPhysics.fillColor = '#ff5151';
 
-var hexEcon = new Path.RegularPolygon(new Point(4*rad+2*x, 3*rad+4*x), 6, initRad);
-hexEcon.fillColor = 'yellow';
-hexEcon.strokeColor = 'black';
+var imgPhysics = new Raster('phys');
+imgPhysics.position = new Point(curX, curY);
+imgPhysics.scale(0.02);
+imgPhysics.rotate(-30);
 
-var hexagons = [hexPhysics, hexChem, hexMed, hexLit, hexPeace, hexEcon];
+curX += dist;
+
+var hexChem = new Path.RegularPolygon(new Point(curX, curY), 6, initRad);
+hexChem.fillColor = '#ff5151';
+
+var imgChem = new Raster('chem');
+imgChem.position = new Point(curX, curY);
+imgChem.scale(0.02);
+imgChem.rotate(-30);
+
+curX += dist*0.5;
+curY += Math.sqrt(3);
+
+var hexMed = new Path.RegularPolygon(new Point(curX, curY), 6, initRad);
+hexMed.fillColor = '#ff5151';
+
+var imgMed = new Raster('med');
+imgMed.position = new Point(curX, curY);
+imgMed.scale(0.02);
+imgMed.rotate(-30);
+
+curX -= dist*0.5;
+curY += Math.sqrt(3);
+
+var hexLit = new Path.RegularPolygon(new Point(curX, curY), 6, initRad);
+hexLit.fillColor = '#ff5151';
+
+var imgLit = new Raster('lit');
+imgLit.position = new Point(curX, curY);
+imgLit.scale(0.02);
+imgLit.rotate(-30);
+
+curX -= dist;
+
+var hexPeace = new Path.RegularPolygon(new Point(curX, curY), 6, initRad);
+hexPeace.fillColor = '#ff5151';
+
+var imgPeace = new Raster('peace');
+imgPeace.position = new Point(curX, curY);
+imgPeace.scale(0.02);
+imgPeace.rotate(-30);
+
+curX -= dist*0.5;
+curY -= Math.sqrt(3);
+
+var hexEcon = new Path.RegularPolygon(new Point(curX, curY), 6, initRad);
+hexEcon.fillColor = '#ff5151';
+
+var imgEcon = new Raster('econ');
+imgEcon.position = new Point(curX, curY);
+imgEcon.scale(0.02);
+imgEcon.rotate(-30);
+
+var groupPhys = new Group([hexPhysics, imgPhysics]);
+var groupChem = new Group([hexChem, imgChem]);
+var groupMed = new Group([hexMed, imgMed]);
+var groupLit = new Group([hexLit, imgLit]);
+var groupPeace = new Group([hexPeace, imgPeace]);
+var groupEcon = new Group([hexEcon, imgEcon]);
+
+var hexagons = [groupPhys, groupChem, groupMed, groupLit, groupPeace, groupEcon];
+
+for(i = 0; i < hexagons.length; i++){
+    //hexagons[i].strokeColor = 'black';
+    hexagons[i].onMouseEnter = function(event){
+       this.scale(1.1);
+    }
+    hexagons[i].onMouseLeave = function(event){
+        this.scale((1/1.1));
+    }
+    hexagons[i].onClick = function(){
+        //Call next page with index i
+    }
+}
 
 index = 0;
 
@@ -44,7 +114,7 @@ function onFrame(event){
     for(i = 0; i < hexagons.length; i++){
         hexagons[i].rotate(0.5);
         hexagons[i].scale(1.05);
-    }   
+    }     
     
     index += 1;
   }
@@ -54,12 +124,18 @@ function onFrame(event){
 </script>
 </head>
 <body>
-
-<h1>
+<div>
+<center><h1>
     Explore the Nobel Prize Laureates
-</h1>
-<center>
-<canvas id="myCanvas" height="500" width="700"></canvas>
-</center>
+</h1></center>
+
+<center><canvas id="myCanvas" width="650" height="500"></canvas></center>
+</div>
+<img id="phys" class="visuallyhidden" src="img/phys.png" >
+<img id="chem" class="visuallyhidden" src="img/chem.png">
+<img id="med" class="visuallyhidden" src="img/med.png">
+<img id="lit" class="visuallyhidden" src="img/lit.png" >
+<img id="peace" class="visuallyhidden" src="img/peace.png">
+<img id="econ" class="visuallyhidden" src="img/econ.png" >
 </body>
 </html>
