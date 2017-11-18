@@ -20,5 +20,5 @@ from django.contrib import admin
 from . import views
 
 urlpatterns = [
-    #url(r'^$', views.returnPrize, name='returnPrize'),
+    url(r'^getLaureate$', views.getLaureate, name='getLaureate'),
 ]

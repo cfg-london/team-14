@@ -8,7 +8,7 @@ from laureates.models import Laureate
 class Prize(models.Model):
 	year = models.IntegerField(blank=False, null=False)
 	category = models.CharField(blank=False, null=False, max_length=10)
-	motivation = models.CharField(blank=True, null=True, max_length=256)
+	motivation = models.TextField(blank=True, null=True)
 	
 	def __str__(self):
 		return '{0!s} - {1!s}'.format(self.year, self.category)
