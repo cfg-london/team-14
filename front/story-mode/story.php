@@ -3,6 +3,7 @@
     <head>
         <?php
         // /story.php?laureate=id
+            $id = 0;
             if (isset($_GET['laureate'])) {
                 $id = $_GET['laureate'];
             }else{
@@ -64,7 +65,7 @@ In fact: I was very bad in school, Dubochet told RTS. The scientist adds that a 
                 <div class="slide">
                         <div class="laureate-info">
                             <?php
-                            echo '<img class="rounded-circle" src="https://www.nobelprize.org/nobel_prizes/peace/laureates/'.$year.'/'. $surname .'_postcard.jpg" width="140" height="140">';
+                            echo '<img class="rounded-circle" src="https://www.nobelprize.org/nobel_prizes/chemistry/laureates/'.$year.'/'. $surname .'_postcard.jpg" width="140" height="140">';
                             echo '<h3>'.$fullName.'</h3>';
                             ?>
                         </div>
@@ -90,7 +91,7 @@ In fact: I was very bad in school, Dubochet told RTS. The scientist adds that a 
                             </div>
 
                             <div class="col-md-5 order-md-1">
-                                <?php echo '<img class="rounded-circle" src="https://www.nobelprize.org/nobel_prizes/peace/laureates/'.$year.'/'. $surname .'_postcard.jpg" width="500" height="500">'; ?>
+                                <?php echo '<img class="rounded-circle" src="https://www.nobelprize.org/nobel_prizes/chemistry/laureates/'.$year.'/'. $surname .'_postcard.jpg" width="500" height="500">'; ?>
                             </div>
                         </div>
                     </div>
@@ -106,10 +107,10 @@ In fact: I was very bad in school, Dubochet told RTS. The scientist adds that a 
                     <div class="related-laureates">
                         <h4><span class="text-muted">Related laureates:</span></h4>
                         <ul>
-                            <li><img class="rounded-circle" src="https://www.nobelprize.org/nobel_prizes/peace/laureates/2009/ramakrishnan_postcard.jpg" width="100" height="100"></li>
-                            <li><img class="rounded-circle" src="https://www.nobelprize.org/nobel_prizes/peace/laureates/1935/joliot-curie_postcard.jpg" width="100" height="100"></li>
-                            <li><img class="rounded-circle" src="https://www.nobelprize.org/nobel_prizes/peace/laureates/2015/sancar_postcard.jpg" width="100" height="100"></li>
-                            <li><img class="rounded-circle" src="https://www.nobelprize.org/nobel_prizes/peace/laureates/2017/frank_postcard.jpg" width="100" height="100"></li>
+                            <li><img class="rounded-circle" src="https://www.nobelprize.org/nobel_prizes/chemistry/laureates/2009/ramakrishnan_postcard.jpg" width="100" height="100"></li>
+                            <li><img class="rounded-circle" src="https://www.nobelprize.org/nobel_prizes/chemistry/laureates/1935/joliot-curie_postcard.jpg" width="100" height="100"></li>
+                            <li><img class="rounded-circle" src="https://www.nobelprize.org/nobel_prizes/chemistry/laureates/2015/sancar_postcard.jpg" width="100" height="100"></li>
+                            <li><img class="rounded-circle" src="https://www.nobelprize.org/nobel_prizes/chemistry/laureates/2017/frank_postcard.jpg" width="100" height="100"></li>
                         </ul>
                     </div>
                 </div>
