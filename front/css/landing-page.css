@@ -4,7 +4,9 @@
  * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-landing-page/blob/master/LICENSE)
  */
 body {
-  font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif; }
+  font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  background-color: #333333;
+  color: #ffffff;}
 
 h1,
 h2,
@@ -13,7 +15,8 @@ h4,
 h5,
 h6 {
   font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-weight: 700; }
+  font-weight: 700; 
+  padding: 20px;}
 
 header.masthead {
   position: relative;
@@ -96,3 +99,17 @@ header.masthead {
 footer.footer {
   padding-top: 4rem;
   padding-bottom: 4rem; }
+
+    
+
+.visuallyhidden {
+  display:none;
+}
+
+
+.centerDiv {
+   position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}

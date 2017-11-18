@@ -3,6 +3,7 @@
 <head>
 
 <link rel="stylesheet" type="text/css" href="css/landing-page.css" />
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <!-- Load the Paper.js library -->
 <script type="text/javascript" src="js/paper.js"></script>
 <!-- Define inlined PaperScript associate it with myCanvas -->
@@ -12,19 +13,31 @@ var width = window.innerWidth
 || document.documentElement.clientWidth
 || document.body.clientWidth;
 
-var maxW = width * 0.6;
+var height = window.innerHeight
+|| document.documentElement.clientHeight
+|| document.body.clientHeight;
 
-var dist = maxW/2;
-console.log(dist);
+var maxW = width * 0.8;
+var maxH = height * 0.6;
 
-var rad = (dist/2) - 10;
-var initRad = rad/(1.1^60);
+maxW = Math.min(maxW, 1600);
+maxH = Math.min(maxH, 800);
 
-var curX = rad + dist*0.5;
+var dist = Math.min(maxW/4, maxH/2);
+
+var rad = (dist/2) - 20;
+var initRad = rad/(1.05^20);
+
+var actW = 2.2*rad + 2*dist;
+var actH = 2.2*rad + dist*Math.sqrt(3);
+
+document.getElementById("myCanvas").height = actH;
+document.getElementById("myCanvas").width = actW;
+
+var curX = rad*1.1 + dist*0.5;
 var curY = rad;
 
 var hexPhysics = new Path.RegularPolygon(new Point(curX, curY), 6, initRad);
-hexPhysics.fillColor = '#ff5151';
 
 var imgPhysics = new Raster('phys');
 imgPhysics.position = new Point(curX, curY);
@@ -34,7 +47,6 @@ imgPhysics.rotate(-30);
 curX += dist;
 
 var hexChem = new Path.RegularPolygon(new Point(curX, curY), 6, initRad);
-hexChem.fillColor = '#ff5151';
 
 var imgChem = new Raster('chem');
 imgChem.position = new Point(curX, curY);
@@ -42,10 +54,9 @@ imgChem.scale(0.02);
 imgChem.rotate(-30);
 
 curX += dist*0.5;
-curY += Math.sqrt(3);
+curY += dist*Math.sqrt(3)/2;
 
 var hexMed = new Path.RegularPolygon(new Point(curX, curY), 6, initRad);
-hexMed.fillColor = '#ff5151';
 
 var imgMed = new Raster('med');
 imgMed.position = new Point(curX, curY);
@@ -53,11 +64,9 @@ imgMed.scale(0.02);
 imgMed.rotate(-30);
 
 curX -= dist*0.5;
-curY += Math.sqrt(3);
+curY += dist*Math.sqrt(3)/2;
 
 var hexLit = new Path.RegularPolygon(new Point(curX, curY), 6, initRad);
-hexLit.fillColor = '#ff5151';
-
 var imgLit = new Raster('lit');
 imgLit.position = new Point(curX, curY);
 imgLit.scale(0.02);
@@ -66,7 +75,6 @@ imgLit.rotate(-30);
 curX -= dist;
 
 var hexPeace = new Path.RegularPolygon(new Point(curX, curY), 6, initRad);
-hexPeace.fillColor = '#ff5151';
 
 var imgPeace = new Raster('peace');
 imgPeace.position = new Point(curX, curY);
@@ -74,10 +82,9 @@ imgPeace.scale(0.02);
 imgPeace.rotate(-30);
 
 curX -= dist*0.5;
-curY -= Math.sqrt(3);
+curY -= dist*Math.sqrt(3)/2;
 
 var hexEcon = new Path.RegularPolygon(new Point(curX, curY), 6, initRad);
-hexEcon.fillColor = '#ff5151';
 
 var imgEcon = new Raster('econ');
 imgEcon.position = new Point(curX, curY);
@@ -91,10 +98,16 @@ var groupLit = new Group([hexLit, imgLit]);
 var groupPeace = new Group([hexPeace, imgPeace]);
 var groupEcon = new Group([hexEcon, imgEcon]);
 
+var outlines = [hexPhysics, hexChem, hexMed, hexLit, hexPeace, hexEcon];
+
 var hexagons = [groupPhys, groupChem, groupMed, groupLit, groupPeace, groupEcon];
 
 for(i = 0; i < hexagons.length; i++){
-    //hexagons[i].strokeColor = 'black';
+
+    outlines[i].strokeColor = '#ff5151';
+    outlines[i].fillColor = '#333333';
+    outlines[i].strokeWidth = 3;
+    
     hexagons[i].onMouseEnter = function(event){
        this.scale(1.1);
     }
@@ -108,6 +121,7 @@ for(i = 0; i < hexagons.length; i++){
 
 index = 0;
 
+
 function onFrame(event){
   
   if(index < 60){
@@ -120,17 +134,21 @@ function onFrame(event){
   }
 }
 
-
 </script>
 </head>
 <body>
-<div>
-<center><h1>
-    Explore the Nobel Prize Laureates
-</h1></center>
+<div class="centerDiv">
+<center>
 
-<center><canvas id="myCanvas" width="650" height="500"></canvas></center>
+<canvas id="myCanvas" width=1200 height=800></canvas>
+
+</center>
+ 
 </div>
+
+
+<a style="color:#ffffff;text-decoration:none;" href="index.html"><i class="material-icons" style="font-size:64px">&#xe408;</i></a>
+
 <img id="phys" class="visuallyhidden" src="img/phys.png" >
 <img id="chem" class="visuallyhidden" src="img/chem.png">
 <img id="med" class="visuallyhidden" src="img/med.png">
