@@ -1,17 +1,18 @@
 $(document).ready(function(){
-	$("#Query").click(function(){
-		string = $("#queryStr").val()
+    $("#Query").click(function(){
+        string = $("#queryStr").val()
          alert(string)
-		$.ajax({
-            type: "GET",
-            success: function(data) {
-           
-            for(i = 0; i < data.length; i++){
-                $('ul').append('<li>'+data[i]+'</li>');
-            }
-        }
-        });
-	
-	});
+        // $.ajax({
+  //           url: "nlp.php"
+  //           type: "GET",
+  //           data: {query:string},
+  //           success: function(data) {
+  //               data = JSON.parse(data)
+  //               $(location).attr('href', "search.html/?query="+encodeURI(data))
+  //           }
+  //       });
+       $(location).attr('href', "search.html")
+    
+    });
 
 });

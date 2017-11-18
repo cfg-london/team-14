@@ -146,8 +146,12 @@ function onFrame(event){
  
 </div>
 
-
-<a style="color:#ffffff;text-decoration:none;" href="index.html"><i class="material-icons" style="font-size:64px">&#xe408;</i></a>
+<script>
+function goBack() {
+    window.history.back();
+}
+</script>
+<a style="color:#ffffff; text-decoration:none;" onclick="goBack()"><i class="material-icons" style="font-size:64px">&#xe408;</i></a>
 
 <img id="phys" class="visuallyhidden" src="img/phys.png" >
 <img id="chem" class="visuallyhidden" src="img/chem.png">
