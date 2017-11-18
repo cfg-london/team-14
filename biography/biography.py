@@ -4,7 +4,7 @@ import re
 
 
 def getBiography(url):
-    # Not checking server - must change this for production!
+    # Not checking server certificate - must change this for production!
     response = urllib.request.urlopen(url, context=ssl.SSLContext())
     content = response.read().decode('utf-8')
 
