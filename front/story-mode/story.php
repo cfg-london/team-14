@@ -54,7 +54,7 @@ In fact: I was very bad in school, Dubochet told RTS. The scientist adds that a 
         ?>
         <title>Nobel Laureate Story</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" type="text/css" href="story.css">
+        <link rel="stylesheet" type="text/css" href="../story.css">
         <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
         <link rel="stylesheet" type="text/css" href="fullPage.js-master/jquery.fullPage.css" />
@@ -65,7 +65,11 @@ In fact: I was very bad in school, Dubochet told RTS. The scientist adds that a 
                 <div class="slide">
                         <div class="laureate-info">
                             <?php
-                            echo '<img class="rounded-circle" src="https://www.nobelprize.org/nobel_prizes/chemistry/laureates/'.$year.'/'. $surname .'_postcard.jpg" width="140" height="140">';
+                            if ($id == 6){
+                                echo '<img class="rounded-circle" src="https://www.nobelprize.org/nobel_prizes/chemistry/laureates/'.$year.'/marie-curie_postcard.jpg" width="140" height="140">';
+                            }else {
+                                  echo '<img class="rounded-circle" src="https://www.nobelprize.org/nobel_prizes/chemistry/laureates/'.$year.'/'. $surname .'_postcard.jpg" width="140" height="140">';
+                              }
                             echo '<h3>'.$fullName.'</h3>';
                             ?>
                         </div>
