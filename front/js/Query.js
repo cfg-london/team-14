@@ -1,7 +1,6 @@
 $(document).ready(function(){
     $("#Query").click(function(){
         string = $("#queryStr").val()
-         alert(string)
         // $.ajax({
   //           url: "nlp.php"
   //           type: "GET",
@@ -11,7 +10,7 @@ $(document).ready(function(){
   //               $(location).attr('href', "search.html/?query="+encodeURI(data))
   //           }
   //       });
-       $(location).attr('href', "search.html")
+       $(location).attr('href', "search.php/?query="+encodeURI(string))
     
     });
 

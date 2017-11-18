@@ -1,0 +1,117 @@
+.searchBar{
+
+width: 100%;
+    height: 100px;
+
+    position: absolute;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    margin: auto;
+}
+#title{
+	font-size:30px;
+
+	padding-bottom:20px;
+
+}
+.navBar{
+	width:100%;
+	position:fixed;
+	height:120px;
+	background-color:rgba(0,0,0,0)
+}
+#icons{
+	padding-bottom:120px;
+	padding-top:120px;
+	width:100%;
+	margin-left:auto;
+	margin-right:auto;
+	text-align: center;
+}
+#exploreButton{
+	margin-top:10px;
+	border-radius:0px; 
+	padding: 25px;
+	border : none !important;
+	border-style : none !important;
+	background-color:#4dbef2;
+	-moz-box-shadow: 0 0 17px rgba(0, 0, 0, 0.6);
+	-webkit-box-shadow: 0 0 17px rgba(0, 0, 0, 0.6);
+	box-shadow: 0 0 17px rgba(0, 0, 0, 0.6);
+}
+#exploreButton:hover{
+	background-color:#3294c1;
+	cursor:pointer;
+}
+#maincontent{
+	position: absolute;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+	width: 70%;
+	height: 200px;
+    margin: auto;
+}
+#queryStr{
+
+	border-radius:0px ;
+	padding: 25px;
+	border : none !important;
+	-moz-box-shadow: 0 0 17px rgba(0, 0, 0, 0.6);
+	-webkit-box-shadow: 0 0 17px rgba(0, 0, 0, 0.6);
+	box-shadow: 0 0 17px rgba(0, 0, 0, 0.6);
+}
+#Query{
+	border-radius:0px; 
+	padding: 25px;
+	border : none !important;
+	border-style : none !important;
+	background-color:#ff5151;
+	-moz-box-shadow: 0 0 17px rgba(0, 0, 0, 0.6);
+	-webkit-box-shadow: 0 0 17px rgba(0, 0, 0, 0.6);
+	box-shadow: 0 0 17px rgba(0, 0, 0, 0.6);
+}
+#Query:hover{
+	background-color:#d64242;
+	cursor:pointer;
+}
+
+#home{
+	margin-left:1%;
+	border-radius:0px; 
+	padding: 25px;
+	border : none !important;
+	border-style : none !important;
+	background-color:#79d865;
+	-moz-box-shadow: 0 0 17px rgba(0, 0, 0, 0.6);
+	-webkit-box-shadow: 0 0 17px rgba(0, 0, 0, 0.6);
+	box-shadow: 0 0 17px rgba(0, 0, 0, 0.6);
+}
+#home:hover{
+	background-color:#4daf3a;
+	cursor:pointer;
+}
+
+
+
+
+
+#exploreButton2{
+	margin-left:1%;
+	border-radius:0px; 
+	padding: 25px;
+	border : none !important;
+	border-style : none !important;
+	background-color:#4dbef2;
+	-moz-box-shadow: 0 0 17px rgba(0, 0, 0, 0.6);
+	-webkit-box-shadow: 0 0 17px rgba(0, 0, 0, 0.6);
+	box-shadow: 0 0 17px rgba(0, 0, 0, 0.6);
+}
+#exploreButton2:hover{
+	background-color:#3294c1;
+	cursor:pointer;
+}
